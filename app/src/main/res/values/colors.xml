@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Original main colors -->
+    <color name="forest_green_light">#B9D6B6</color>
+
+    <!-- Colors for the memorization state -->
+    <color name="memorized">#45B29D</color>
+
+    <!-- Bible ribbon colors -->
+
+    <!-- Background colors -->
+    <color name="background_light">#F0F0F0</color>
+    <color name="card_light">#FFFFFF</color>
+    <color name="card_header_light">#eeeeee</color>
+    <color name="background_dark">#404040</color>
+    <color name="card_dark">#505050</color>
+    <color name="card_header_dark">#616161</color>
+
+    <!-- Toolbar Colors (Current main colors) -->
+    <color name="colorPrimary">#501550</color>
+    <color name="colorPrimaryDark">#380e38</color>
+    <color name="colorAccent">#00995b</color>
+
+</resources>

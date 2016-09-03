@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="theme_name" format="string"/>
+
+    <attr name="color_background" format="color" />
+    <attr name="color_card" format="color" />
+    <attr name="color_card_header" format="color"/>
+
+    <attr name="toolbar_theme" format="reference"/>
+    <attr name="popup_theme" format="reference" />
+    <attr name="icon_color" format="reference" />
+
+    <declare-styleable name="TimePickerPreference">
+        <attr name="is24hour" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="TintableImageView">
+        <attr name="tint" format="reference|color"/>
+    </declare-styleable>
+
+    <declare-styleable name="MenuWidget">
+        <attr name="menu" />
+    </declare-styleable>
+
+    <declare-styleable name="SearchBox">
+        <attr name="menu"/>
+    </declare-styleable>
+
+    <declare-styleable name="CardView">
+        <attr name="title"/>
+        <attr name="menu"/>
+    </declare-styleable>
+
+    <declare-styleable name="SplitPaneLayout">
+        <attr name="orientation">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr>
+        <attr name="splitterPosition" format="dimension"/>
+        <attr name="splitterDrawable" format="reference|color"/>
+        <attr name="splitterThumbDrawable" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="TimePicker">
+        <attr name="trackColor" format="color" />
+        <attr name="thumbColor" format="color" />
+        <attr name="textColor" format="color" />
+        <attr name="title"/>
+        <attr name="initHour" format="integer"/>
+        <attr name="initMin" format="integer"/>
+        <attr name="quantize" format="integer"/>
+    </declare-styleable>
+
+</resources>
