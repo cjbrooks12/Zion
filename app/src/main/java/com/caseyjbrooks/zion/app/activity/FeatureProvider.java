@@ -61,6 +61,7 @@ public class FeatureProvider {
 // Set up application features through the top-level FeatureConfiguration objects. When requested,
 //    they will serve up the class of the appropriate configuration object, which we will create if
 //    necessary, then cache and return.
+
     public void addFeature(@NonNull FeatureConfiguration newFeature) {
         for(int i = 0; i < appFeatures.size(); i++) {
             if(appFeatures.get(i).equals(newFeature)) {
@@ -110,6 +111,23 @@ public class FeatureProvider {
 
     public void setDefaultFeature(FeatureConfiguration defaultFeature) {
         this.defaultFeature = defaultFeature;
+    }
+
+    public void setDefaultFeature(Class<? extends FeatureConfiguration> defaultFeatureClass) {
+        this.defaultFeature = findFeatureConfiguration(defaultFeatureClass);
+    }
+
+    public void setDefaultFeature(String defaultFeatureClassName) {
+        try {
+            Class<? extends FeatureConfiguration> featureClass = (Class<? extends FeatureConfiguration>) Class.forName(defaultFeatureClassName);
+            this.defaultFeature = findFeatureConfiguration(featureClass);
+        }
+        catch(ClassCastException cce) {
+            Clog.e("Clog", "Class '{{ $1 }}' is not an instance of FeatureConfiguration", cce, defaultFeatureClassName);
+        }
+        catch(ClassNotFoundException cnfe) {
+            Clog.e("Clog", "Class '{{ $1 }}' could not be found on classpath", cnfe, defaultFeatureClassName);
+        }
     }
 
     // Use reflection to find the concrete object given a class

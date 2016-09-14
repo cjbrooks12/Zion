@@ -8,13 +8,23 @@ import com.caseyjbrooks.zion.app.activity.FeatureConfiguration;
 public abstract class FragmentConfiguration {
     private Context context;
 
-    private int decorColor;
-    private long id;
-    private int icon;
-    private String title;
-    private String subtitle;
+    private int decorColor = 0;
+    private long id = 0;
+    private int icon = 0;
+    private String title = "";
+    private String subtitle = "";
 
-    int menuResourceId;
+    private int menuResourceId = 0;
+
+    private boolean usesSearchbox = false;
+    private String searchboxHint = "";
+    private int searchboxMenuId = 0;
+
+    private boolean usesFab = false;
+    private int fabIconId = 0;
+
+    private boolean shouldAddToBackstatck = true;
+    private boolean isTopLevel = true;
 
     public FragmentConfiguration(Context context) {
         this.context = context.getApplicationContext();
@@ -69,5 +79,61 @@ public abstract class FragmentConfiguration {
 
     public void setMenuResourceId(int menuResourceId) {
         this.menuResourceId = menuResourceId;
+    }
+
+    public boolean usesSearchbox() {
+        return usesSearchbox;
+    }
+
+    public void setUsesSearchbox(boolean usesSearchbox) {
+        this.usesSearchbox = usesSearchbox;
+    }
+
+    public String getSearchboxHint() {
+        return searchboxHint;
+    }
+
+    public void setSearchboxHint(String searchboxHint) {
+        this.searchboxHint = searchboxHint;
+    }
+
+    public int getSearchboxMenuId() {
+        return searchboxMenuId;
+    }
+
+    public void setSearchboxMenuId(int searchboxMenuId) {
+        this.searchboxMenuId = searchboxMenuId;
+    }
+
+    public boolean shouldAddToBackstatck() {
+        return shouldAddToBackstatck;
+    }
+
+    public void setShouldAddToBackstatck(boolean shouldAddToBackstatck) {
+        this.shouldAddToBackstatck = shouldAddToBackstatck;
+    }
+
+    public boolean usesFab() {
+        return usesFab;
+    }
+
+    public void setUsesFab(boolean usesFab) {
+        this.usesFab = usesFab;
+    }
+
+    public int getFabIconId() {
+        return fabIconId;
+    }
+
+    public void setFabIconId(int fabIconId) {
+        this.fabIconId = fabIconId;
+    }
+
+    public boolean isTopLevel() {
+        return isTopLevel;
+    }
+
+    public void setTopLevel(boolean topLevel) {
+        isTopLevel = topLevel;
     }
 }

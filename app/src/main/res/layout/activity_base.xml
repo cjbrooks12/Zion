@@ -57,8 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
-            app:fabSize="normal"
-            android:visibility="gone"/>
+            app:fabSize="normal"/>
     </android.support.design.widget.CoordinatorLayout>
 
     <com.caseyjbrooks.zion.app.ExpandableNavigationView

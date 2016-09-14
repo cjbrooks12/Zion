@@ -23,7 +23,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.caseyjbrooks.zion.R;
-import com.caseyjbrooks.zion.app.activity.ActivityBase;
 import com.caseyjbrooks.zion.util.ReverseInterpolator;
 
 import io.codetail.animation.SupportAnimator;
@@ -32,12 +31,18 @@ import io.codetail.animation.ViewAnimationUtils;
 //TODO: add button to complete search manually
 //TODO: add button to clear query
 public class SearchBox extends RelativeLayout {
+    public interface SearchBoxListener {
+        boolean onSearch(String query);
+        void onQueryChanged(String query);
+        boolean onSearchMenuItemSelected(MenuItem selectedItem);
+    }
+
     MenuWidget menuWidget;
     ArrowDrawableToggle arrow;
     View searchRoot;
     EditText editText;
 
-    ActivityBase listener;
+    SearchBoxListener listener;
 
     String hint;
     boolean isOpen, isRevealed;
@@ -103,9 +108,9 @@ public class SearchBox extends RelativeLayout {
 
                 query = s.toString();
 
-//                if(listener != null) {
-//                    listener.onQueryChanged(query);
-//                }
+                if(listener != null) {
+                    listener.onQueryChanged(query);
+                }
             }
 
             @Override
@@ -119,9 +124,9 @@ public class SearchBox extends RelativeLayout {
                 if(actionId == EditorInfo.IME_ACTION_SEARCH) {
                     setIsOpen(false);
 
-//                    if(listener != null) {
-//                        return listener.onSearchSubmitted(query);
-//                    }
+                    if(listener != null) {
+                        return listener.onSearch(query);
+                    }
                 }
                 return false;
             }
@@ -141,16 +146,12 @@ public class SearchBox extends RelativeLayout {
         menuWidget.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-//                if(listener != null) {
-//                    return listener.onSearchMenuItemSelected(item);
-//                }
+                if(listener != null) {
+                    return listener.onSearchMenuItemSelected(item);
+                }
                 return false;
             }
         });
-
-//        if(context instanceof ActivityBase) {
-//            this.listener = (FragmentBase) context;
-//        }
 
         setIsOpen(false);
     }
@@ -304,5 +305,9 @@ public class SearchBox extends RelativeLayout {
 
     public void setMenuResource(int menuResourceId) {
         menuWidget.setMenuResource(menuResourceId);
+    }
+
+    public void setSearchBoxListener(SearchBoxListener listener) {
+        this.listener = listener;
     }
 }

@@ -1,1 +1,1 @@
-include ':app', ':ziontest'
+include ':app', ':ziontest', ':ziontestapp'

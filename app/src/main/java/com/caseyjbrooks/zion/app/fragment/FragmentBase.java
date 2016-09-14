@@ -16,7 +16,6 @@ public abstract class FragmentBase extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
     }
 
     @Override
@@ -58,4 +57,24 @@ public abstract class FragmentBase extends Fragment {
     }
 
     public abstract @NonNull Class<? extends FragmentConfiguration> getFragmentConfigurationClass();
+
+    public boolean onBackButtonPressed() {
+        return false;
+    }
+
+    public boolean onBackArrowPressed() {
+        return false;
+    }
+
+    public boolean onFABPressed() {
+        return false;
+    }
+
+    public boolean onNetworkConnected() {
+        return false;
+    }
+
+    public boolean onNetworkDisconnected() {
+        return false;
+    }
 }
